@@ -1,15 +1,14 @@
 ﻿@model Vidly.ViewModels.CustomerFormViewModel
-@{
-    ViewBag.Title = "New Customer";
-}
 
 @if (Model.Customer == null)
 {
     <h2>New Customer</h2>
+    ViewBag.Title = "New Customer";
 }
 else
 {
     <h2>Edit Customer</h2>
+    ViewBag.Title = "Edit Customer";
 }
 
 @using (Html.BeginForm("Save", "Customers"))
@@ -17,14 +16,17 @@ else
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Name)
         @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.Name)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.Birthdate)
         @Html.TextBoxFor(m => m.Customer.Birthdate, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.Birthdate)
     </div>
     <div class="form-group">
         @Html.LabelFor(m => m.Customer.MembershipTypeId)
         @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select membership type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId)
     </div>
     <div class="checkbox">
         <label>
