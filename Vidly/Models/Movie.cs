@@ -20,7 +20,6 @@ namespace Vidly.Models
         [Display(Name = "Genre")]
         public byte GenreId { get; set; }
 
-        [Required]
         [Display(Name = "Date Added")]
         public DateTime DateAdded { get; set; }
 
