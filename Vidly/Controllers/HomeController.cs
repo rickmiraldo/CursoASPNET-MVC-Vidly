@@ -9,6 +9,8 @@ namespace Vidly.Controllers
     [AllowAnonymous]
     public class HomeController : Controller
     {
+
+        [OutputCache(Duration = 0, VaryByParam = "*", NoStore = true)] // This disables caching
         public ActionResult Index()
         {
             return View();
